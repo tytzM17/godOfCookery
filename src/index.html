@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The web site of godofcookery</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/ethers.js"></script> 
+
+  </head>
+  <body>
+  <div class="content">
+    <h1>Welcome to God of Cookery! 👨‍🍳 </h1>
+    <h3> a CRYPTO gaming 📺 ️+ NFT webseit </h3>
+
+   <p>Share or sell? NFTs - a digital art where tru ownership made by hashes/erc1155 contract/ipfs hosted imgs is now a reality! an art renaissance as they say! </p>
+   
+   <p>PLAY simple Simulation games like buying ingredients, cooking, fishing, etc. using crypto </p>
+   
+      <p>Weblog as of 10-29-2021<p>
+   
+   <ul>
+   <li> Implement static site generator and deploy-to-neosites ..doing </li>
+   <li> Create first nft for this site ..doing</li>
+   <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
+   <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
+      </ul>
+      
+   <p>Weblog as of 10-28-2021<p>
+   
+   <ul>
+   <li> Create neocities site ..ok </li>
+   <li> Connect ethers.js, metamask wallet to have web3 and crypto capabilities ..ok </li>
+    <li> Add guestbook ..ok</li>
+   <li> Create first nft for this site ..doing</li>
+   <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
+   <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
+   
+   </ul>
+   
+   <br />
+   
+   <p> Tests here: </p>
+   <span>Metamask Wallet 🦊 Account: </span> &nbsp; <span id="account"> </span>
+   
+   <div>Current Block Number: &nbsp; <span id="blockNumber"> </span> </div> 
+   <div>Chain ID: &nbsp; <span id="chainId"> </span> </div> 
+   <div>Chain Name: &nbsp; <span id="chainName"> </span> </div> 
+   
+      <p> Sign my guestbook here: </p>
+      <iframe src="https://godofcookery.123guestbook.com" height="500" width="500" title="god of coojery guestbook"></iframe>
+<div><a href="https://godOfCookery.123Guestbook.com/" target="_blank">or guestbook link here</a></div>
+
+<br />
+   </div>
+   
+   
+   
+   <footer class="footer"> made with ❤️‍🔥 IPFS archiving, neocities web editor, web3 tech, ethers.js. By the goc web programmer, blockchain and game developer, USOP. 🔓 openSourced 2021 </footer>
+   
+   <script type="module">
+     import { ethers } from "./js/ethers.js";
+	    
+    // Your code here...
+    // A Web3Provider wraps a standard Web3 provider, which is
+// what MetaMask injects as window.ethereum into each page
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+// ACCOUNT
+await provider.send("eth_requestAccounts", []);
+const signer = provider.getSigner();
+console.log("Account:", await signer.getAddress());
+document.getElementById("account").innerHTML = await signer.getAddress();
+
+
+// Network
+const network = await provider.getNetwork();
+document.getElementById("chainId").innerHTML = network?.chainId || '';
+document.getElementById("chainName").innerHTML = network?.name || '';
+
+
+async function getBlockNumber() {
+// Look up the current block number
+const blockNum = await provider.getBlockNumber()
+
+return blockNum; // 13451439
+}
+
+getBlockNumber().then(result => {
+  console.log(result)
+  document.getElementById("blockNumber").innerHTML = result;
+});
+
+// Get the balance of an account (by address or ENS name, if supported by network)
+// balance = await provider.getBalance("ethers.eth")
+// { BigNumber: "2337132817842795605" }
+
+// Often you need to format the output to something more user-friendly,
+// such as in ether (instead of wei)
+// ethers.utils.formatEther(balance)
+// '2.337132817842795605'
+</script>
+  </body>
+</html>
