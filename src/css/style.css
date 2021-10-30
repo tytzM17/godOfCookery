@@ -14,3 +14,31 @@ body {
 .footer {
   height: 50px;
 }
+
+#title:hover {
+	color: lightgreen;
+}
+
+#subtitle p {
+	display: inline-block;
+}
+
+
+
+.marquee, #subtitle {
+    width: 450px;
+	line-height: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.marquee p {
+    display: inline-block;
+    padding-right: 100%;
+    animation: marquee 12s linear infinite;
+}
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(100%, 0); }
+}
+
