@@ -9,6 +9,10 @@
          This makes it easier to make new pages for your site. -->
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/ethers.js"></script> 
+	<!-- from unpkg -->
+<script type="module" src="https://unpkg.com/friendly-challenge@0.9.0/widget.module.min.js" async defer></script>
+<script nomodule src="https://unpkg.com/friendly-challenge@0.9.0/widget.min.js" async defer></script>
+
 
   </head>
   <body>
@@ -24,13 +28,20 @@
    are on the Polygon mainnet, thanks</p>
    
    <p>PLAY simple Simulation games like buying ingredients, cooking, fishing, etc. using crypto </p>
-   
-   
+   <p>Get Tokens here</p>
+   <img src="images/diviner-goc.gif" alt="diviner-giver-of-tokens" />
+   	<!--<div class="frc-captcha" data-sitekey="FCMP8F3C83KG2VRQ" data-callback="myCallback"></div>-->
+	
+    <label for="email">(ongoing) Perform captcha, Offer your email:</label>
+<input type="email" id="email" name="email"> 
+    <button type="button" onclick="alert('perform captcha to get tokens!')">Get GOC Tokens!</button> 
+
+	
          <p>Weblog as of 10-31-2021<p>
    
    <ul>
-   <li> add title and subtitle animations ..done </li>
-   <li> add button gif images for share/upload nfts, buy nfts, and play sim game </li>
+   <li style="text-decoration:line-through;"> add title and subtitle animations ..done </li>
+<li> add captcha for erc20 token distribution.. doing </li>
    <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
    <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
       </ul>
@@ -39,8 +50,8 @@
       <p>Weblog as of 10-29-2021<p>
    
    <ul>
-   <li> Implement static site generator and deploy-to-neosites ..done </li>
-   <li> Create first nft for this site ..done</li>
+   <li style="text-decoration:line-through;"> Implement static site generator and deploy-to-neosites ..done </li>
+   <li style="text-decoration:line-through;" > Create first nft for this site ..done</li>
    <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
    <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
       </ul>
@@ -48,10 +59,10 @@
    <p>Weblog as of 10-28-2021<p>
    
    <ul>
-   <li> Create neocities site ..done </li>
-   <li> Connect ethers.js, metamask wallet to have web3 and crypto capabilities ..done </li>
-    <li> Add guestbook ..done</li>
-   <li> Create first nft for this site ..doing</li>
+   <li style="text-decoration:line-through;"> Create neocities site ..done </li>
+   <li style="text-decoration:line-through;"> Connect ethers.js, metamask wallet to have web3 and crypto capabilities ..done </li>
+    <li style="text-decoration:line-through;"> Add guestbook ..done</li>
+   <li style="text-decoration:line-through;"> Create first nft for this site ..doing</li>
    <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
    <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
    
@@ -135,5 +146,11 @@ getBlockNumber().then(result => {
 </script>
 
 <script type="text/javascript" src="js/onHoverMarquee.js"></script> 
+
+<script>
+function myCallback(solution) {
+    alert("Captcha finished with solution " + solution);
+}
+</script>
   </body>
 </html>
