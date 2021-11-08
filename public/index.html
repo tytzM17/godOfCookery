@@ -21,28 +21,48 @@
 	<iframe src="https://gateway.pinata.cloud/ipfs/QmeWqZBLGKKmcx5CvBQfL84TVpKRE5y9WGgDdwRPXBE3rv" height="240" width="320" title="god of cookery nft"></iframe>
 	<iframe src="https://gateway.pinata.cloud/ipfs/QmdrAJgSN2rxxvLrfffR7CUCpoeYsK4mexF1p7ANbTmWgB" frameBorder="0" height="240" width="320" title="this is an nft nft"></iframe>
 	
-    <h3 id="subtitle"> <p>a CRYPTO gaming 📺 ️+ NFT website</p> </h3>
+    <h3 id="subtitle"> <p>awesooooooommmeeee, WAGMI let's go GOC! a CRYPTO gaming 📺 ️+ NFT website + multi-player metaVerse(soon)..... keep an eye.... an a foot.... WAGMI! ...GOC cryptocurrency on the works now too... </p> </h3>
 
    <p>Share or sell? NFTs - a digital art where tru ownership made by hashes/erc1155 contract/ipfs hosted imgs is now a reality! an art renaissance as they say! </p>
-   <p>Buy the god of cookery NFT <a href="https://app.nftrade.com/assets/polygon/0x8c7b9eb446fff8ec190ca1c38ddb4f95422ee8ef/0" target="_blank">here</a>. Make sure you
-   are on the Polygon mainnet, thanks</p>
+   <p>Buy the god of cookery(image above) NFT <a href="https://app.nftrade.com/assets/polygon/0x8c7b9eb446fff8ec190ca1c38ddb4f95422ee8ef/0" target="_blank">here</a>. Make sure you
+   are on the Polygon mainnet, thanks.</p>
    
-   <p>PLAY simple Simulation games like buying ingredients, cooking, fishing, etc. using crypto </p>
-   <p>Get Tokens here</p>
-   <img src="images/diviner-goc.gif" alt="diviner-giver-of-tokens" />
-   	<!--<div class="frc-captcha" data-sitekey="FCMP8F3C83KG2VRQ" data-callback="myCallback"></div>-->
-	
-    <label for="email">(ongoing) Perform captcha, Offer your email:</label>
-<input type="email" id="email" name="email"> 
-    <button type="button" onclick="alert('perform captcha to get tokens!')">Get GOC Tokens!</button> 
+   <p>PLAY simple Simulation games like buying ingredients, cooking, fishing, etc. using crypto. </p>
 
+<br />
+<hr />
+
+   <p>Get Tokens here (instructions) to be able to play the cooking simulation game.</p>
+   <img src="images/diviner-goc.gif" alt="diviner-giver-of-tokens" />
+
+	     <ol>
+<li> Switch metamask network to Moonbase Alpha (found at <a href="https://chainlist.org" target="_blank">chainlist.org</a>). </li>
+   <li> Add token GOC with contract address: <a href="https://moonbase-blockscout.testnet.moonbeam.network/address/0x4d8d24968458af521ef02aefD95f161dF3f9Ea01/transactions"
+   target="_blank">0x4d8d24968458af521ef02aefD95f161dF3f9Ea01</a> </li>
+   <li> Click button below to get tockens! </li>
+      </ol>
+	  
+    <button id="get-tokens-btn-id" class="get-tokens-btn glass" type="button">Get GOC Tokens!</button>  <span id="get-token-status" style="font-style:italic;"></span>
+	 <p>Your G.O.C. Tokens: <span id="goc-tokens"></span></p>
+	 <p>Your G.O.C. Food NFTs: <span id="goc-nfts"></span></p>
+
+<br />
+<hr />
+
+
+ <p>Weblog as of 11-09-2021<p>
+    <ul>
+<li> add erc20 token distribution.. wagmi </li>
+   <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse.. wagmi </li>
+   <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
+      </ul>
 	
          <p>Weblog as of 10-31-2021<p>
    
    <ul>
    <li style="text-decoration:line-through;"> add title and subtitle animations ..done </li>
-<li> add captcha for erc20 token distribution.. doing </li>
-   <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse </li>
+<li style="text-decoration:line-through;"> add captcha for erc20 token distribution.. ngmi </li>
+   <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse.. wagmi </li>
    <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
       </ul>
 	  
@@ -68,7 +88,8 @@
    
    </ul>
    
-   <br />
+<br />
+<hr />
    
    <p> Blockchain INFO: </p>
    <span>Metamask Wallet 🦊 Account: </span> &nbsp; <span id="account"> </span>
@@ -89,7 +110,8 @@ https://gateway.pinata.cloud/ipfs/QmVr3NELW7y2pTXmgAdt3b1kLJLZjKWAmhUSYyQv8Hz1dx
 https://polygonscan.com/address/0x8c7b9eb446fff8ec190ca1c38ddb4f95422ee8ef
    </a></span> </div> 
    
-  
+  <br />
+<hr />
    
       <p> Sign my guestbook here: </p>
       <iframe src="https://godofcookery.123guestbook.com" height="500" width="500" title="god of coojery guestbook"></iframe>
@@ -98,12 +120,15 @@ https://polygonscan.com/address/0x8c7b9eb446fff8ec190ca1c38ddb4f95422ee8ef
 <br />
    </div>
    
-   
+   <br />
+<hr />
    
    <footer class="footer"> made with ❤️‍🔥 IPFS archiving, neocities web editor, web3 tech, ethers.js. By the goc web programmer, blockchain and game developer, USOP. 🔓 openSourced 2021 </footer>
    
    <script type="module">
      import { ethers } from "./js/ethers.js";
+	 import tokenAbi from "./contracts/abi.json" assert { type: "json" };
+
 	    
     // Your code here...
     // A Web3Provider wraps a standard Web3 provider, which is
@@ -113,7 +138,10 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 // ACCOUNT
 await provider.send("eth_requestAccounts", []);
 const signer = provider.getSigner();
+
 console.log("Account:", await signer.getAddress());
+const account = await signer.getAddress();
+
 document.getElementById("account").innerHTML = await signer.getAddress();
 
 
@@ -143,6 +171,43 @@ getBlockNumber().then(result => {
 // such as in ether (instead of wei)
 // ethers.utils.formatEther(balance)
 // '2.337132817842795605'
+
+async function getGOCTokens(_signer) {
+console.log(_signer)
+	// instance contract, mint tokens from 1-100
+	const contract = new ethers.Contract("0x4d8d24968458af521ef02aefD95f161dF3f9Ea01", tokenAbi, _signer);
+	const amount = ethers.BigNumber.from(1000);
+const tx = await contract.mintTest(amount);
+ const recpt = await tx.wait()
+
+    if (recpt && recpt.status) {
+      document.getElementById("get-token-status").innerHTML = `Success, Tx hash: ${recpt.transactionHash}`;
+
+     setGOCTokens();
+    }
+	
+	if (recpt && !recpt.status) {
+      document.getElementById("get-token-status").innerHTML = `Error, Tx hash: ${recpt.transactionHash}`;
+    }
+}
+
+document.getElementById("get-tokens-btn-id").onclick = function(){ getGOCTokens(signer) };
+
+async function setGOCTokens() {
+	// get balance
+	const contract = new ethers.Contract("0x4d8d24968458af521ef02aefD95f161dF3f9Ea01", tokenAbi, provider);
+const res = await contract.balanceOf(account);
+	// set to tag id goc-tokens
+	 if (res) {
+      const bal = ethers.BigNumber.from(res._hex).toNumber();
+    document.getElementById("goc-tokens").innerHTML = bal;
+    }
+	
+
+}
+
+setGOCTokens();
+
 </script>
 
 <script type="text/javascript" src="js/onHoverMarquee.js"></script> 

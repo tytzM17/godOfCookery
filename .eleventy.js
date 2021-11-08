@@ -9,6 +9,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/images/");
 	eleventyConfig.addWatchTarget("./src/images/");
 	
+	eleventyConfig.addPassthroughCopy("./src/contracts/");
+	eleventyConfig.addWatchTarget("./src/contracts/");
+	
 	return {
 		dir: {
 			input: "src",
