@@ -176,7 +176,8 @@ async function getGOCTokens(_signer) {
 console.log(_signer)
 	// instance contract, mint tokens from 1-100
 	const contract = new ethers.Contract("0x4d8d24968458af521ef02aefD95f161dF3f9Ea01", tokenAbi, _signer);
-	const amount = ethers.BigNumber.from(1000);
+	//const amount = ethers.BigNumber.from(1000);
+	const amount = "100000000000000000000"
 const tx = await contract.mintTest(amount);
  const recpt = await tx.wait()
 
@@ -191,7 +192,13 @@ const tx = await contract.mintTest(amount);
     }
 }
 
-document.getElementById("get-tokens-btn-id").onclick = function(){ getGOCTokens(signer) };
+document.getElementById("get-tokens-btn-id").onclick = function(){ 
+
+document.getElementById("get-token-status").innerHTML = "loading...";
+
+getGOCTokens(signer) 
+
+};
 
 async function setGOCTokens() {
 	// get balance
@@ -199,7 +206,7 @@ async function setGOCTokens() {
 const res = await contract.balanceOf(account);
 	// set to tag id goc-tokens
 	 if (res) {
-      const bal = ethers.BigNumber.from(res._hex).toNumber();
+      const bal = parseFloat( ethers.BigNumber.from(res._hex) / ethers.constants.WeiPerEther );
     document.getElementById("goc-tokens").innerHTML = bal;
     }
 	
@@ -208,14 +215,24 @@ const res = await contract.balanceOf(account);
 
 setGOCTokens();
 
+// typewriter effect
+
+function typeWriter(el="get-token-status", txt="loading...", i=0, speed=50) {
+
+  if (i < txt.length) {
+    document.getElementById(el).innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+
+
+
 </script>
 
 <script type="text/javascript" src="js/onHoverMarquee.js"></script> 
 
-<script>
-function myCallback(solution) {
-    alert("Captcha finished with solution " + solution);
-}
-</script>
+
   </body>
 </html>
