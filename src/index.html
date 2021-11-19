@@ -21,9 +21,9 @@
 	<iframe src="https://gateway.pinata.cloud/ipfs/QmeWqZBLGKKmcx5CvBQfL84TVpKRE5y9WGgDdwRPXBE3rv" height="240" width="320" title="god of cookery nft"></iframe>
 	<iframe src="https://gateway.pinata.cloud/ipfs/QmdrAJgSN2rxxvLrfffR7CUCpoeYsK4mexF1p7ANbTmWgB" frameBorder="0" height="240" width="320" title="this is an nft nft"></iframe>
 	
-    <h3 id="subtitle"> <p>awesooooooommmeeee, WAGMI let's go GOC! a CRYPTO gaming 📺 ️+ NFT website + multi-player metaVerse(soon)..... keep an eye.... an a foot.... WAGMI! ...GOC cryptocurrency on the works now too... </p> </h3>
+    <h3 id="subtitle"> <p>site is about fun, crypto, gaming 📺 ️+ NFT ... ... ... the sim game is still a work in progress ... thanks for visiting </p> </h3>
 
-   <p>Share or sell? NFTs - a digital art where tru ownership made by hashes/erc1155 contract/ipfs hosted imgs is now a reality! an art renaissance as they say! </p>
+   <p>Share NFTs - a digital art where true ownership made by hashes hosted images is now a reality! an art renaissance! </p>
    <p>Buy the god of cookery(image above) NFT <a href="https://app.nftrade.com/assets/polygon/0x8c7b9eb446fff8ec190ca1c38ddb4f95422ee8ef/0" target="_blank">here</a>. Make sure you
    are on the Polygon mainnet, thanks.</p>
    
@@ -42,19 +42,63 @@
    <li> Click button below to get tockens! </li>
       </ol>
 	  
-    <button id="get-tokens-btn-id" class="get-tokens-btn glass" type="button">Get GOC Tokens!</button>  <span id="get-token-status" style="font-style:italic;"></span>
-	 <p>Your G.O.C. Tokens: <span id="goc-tokens"></span></p>
-	 <p>Your G.O.C. Food NFTs: <span id="goc-nfts"></span></p>
+    <button id="get-tokens-btn-id" style="cursor: pointer; margin-left: 25px">Get GOC Tokens!</button>  <span id="get-token-status" style="font-style:italic;"></span>
+	 <p style="cursor: pointer;">Your G.O.C. Tokens: <span id="goc-tokens"></span></p>
+	 <p style="cursor: pointer;">Your G.O.C. Food NFTs: <span id="goc-nfts"></span></p>
 
 <br />
 <hr />
 
+<p> Play the game here </p>
+
+<p> inventory: ['shades', 'wallet', 'bus ticket'] </p>
+<p> status: ['wandering', 'working hard'] </p>
+<p> forSale: ['phone', 'ring'] </p>
+
+<p> ========== </p>
+<p> =NOODLE= </p>
+<p> ===SHOP== </p>
+<p> ========== </p>
+
+<button style="cursor: pointer;">BUY ASSORTED NOODLES --> 40 gocs</button>
+<button style="cursor: pointer;">BUY PISSING BEEF BALLS --> 5 gocs </button>
+
+
+<p> ========== </p>
+<p> =franchise </p>
+<p> ===SHOP== </p>
+<p> ========== </p>
+
+<button style="cursor: pointer;">BUY NOODLES SHOP FRANCHISE --> 40,000 gocs</button>
+<button style="cursor: pointer;">BUY PISSING BEEF BALLS CANNERY --> 50, 000 gocs </button>
+
+buy and earn gocs thru automatic distribution... invest and make money grow
+
+<p> ========== </p>
+<p> ===Wood== </p>
+<p> ===SHOP== </p>
+<p> ========== </p>
+
+<button style="cursor: pointer;">work as day laborer --> earn 4 gocs</button>
+<button style="cursor: pointer;">work as woodworker --> earn 5 gocs </button>
+
+
+<p> ========== </p>
+<p> =ShaoLin= </p>
+<p> =Temple== </p>
+<p> ========== </p>
+
+<button style="cursor: pointer;">enroll as an apprentice</button>
+<button style="cursor: pointer;">visit Buddha shrine </button>
+
+<br />
+<hr />
 
  <p>Weblog as of 11-09-2021<p>
     <ul>
 <li style="text-decoration:line-through;"> add erc20 token distribution.. done </li>
    <li> Create extremely simple first simulation game for this site for u to enjoy ofcourse.. wagmi </li>
-   <li> Create test token erc20 named as 'goc' to buy nft and other in-game utilities </li>
+   <li style="text-decoration:line-through;"> Create test token erc20 named as 'goc' to buy nft and other in-game utilities.. done </li>
       </ul>
 	
          <p>Weblog as of 10-31-2021<p>
@@ -176,8 +220,8 @@ async function getGOCTokens(_signer) {
 console.log(_signer)
 	// instance contract, mint tokens from 1-100
 	const contract = new ethers.Contract("0x4d8d24968458af521ef02aefD95f161dF3f9Ea01", tokenAbi, _signer);
-	//const amount = ethers.BigNumber.from(1000);
-	const amount = "100000000000000000000"
+
+	const amount = "100000000000000000000"; // 100
 const tx = await contract.mintTest(amount);
  const recpt = await tx.wait()
 
@@ -194,7 +238,7 @@ const tx = await contract.mintTest(amount);
 
 document.getElementById("get-tokens-btn-id").onclick = function(){ 
 
-document.getElementById("get-token-status").innerHTML = "loading...";
+document.getElementById("get-token-status").innerHTML = "Loading...";
 
 getGOCTokens(signer) 
 
